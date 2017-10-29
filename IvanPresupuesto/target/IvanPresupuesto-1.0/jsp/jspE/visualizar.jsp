@@ -62,8 +62,10 @@
                     </div>
                     <%
                 }
+// NO ELIMINAS LA SESIÓN
             %>
-        </div>        
+        </div>    
+            <%-- TA FALTA UN ENLACE DE VUELTA AL INICIO --%>
         <%@include file="../../inc/pie.inc"%>
     </body>
 </html>
