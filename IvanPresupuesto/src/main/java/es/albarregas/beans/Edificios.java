@@ -64,12 +64,6 @@ public class Edificios {
     public void setPrima(double prima){
         this.prima=prima;
     }
-
-    @Override
-    public String toString() {
-        return "Edificios{" + "tipo=" + tipo + ", habitaciones=" + habitaciones + ", fecha=" + fecha + ", material=" + material + ", valor=" + valor + ", prima=" + prima + '}';
-    }
-    
     
     
 }

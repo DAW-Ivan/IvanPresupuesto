@@ -28,13 +28,7 @@ public class Elecciones {
 
     public void setContenido(boolean contenido) {
         this.contenido = contenido;
-    }
-
-    @Override
-    public String toString() {
-        return "Elecciones{" + "edificio=" + edificio + ", contenido=" + contenido + '}';
-    }
-    
+    }    
     
     
 }

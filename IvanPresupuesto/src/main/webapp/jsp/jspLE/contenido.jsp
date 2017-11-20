@@ -9,12 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Contenido JSTL</title>
         <link rel="stylesheet" href="../../css/sta.css"/>
     </head>
     <body>
         <%@include file="../../inc/cabecera.inc" %>
-        <div>
+        <div class="contenido">
             <h2>Detalles de la póliza de contenidos</h2>
             <p>Proporcione infromación sobre su contenido en el formulario, y haga clic en Envíar</p>
             <form action="../../contenido" method="post">
@@ -41,7 +41,7 @@
                     <input type="radio" name="franquicia" value="1000" id="1000"/>
                     <label for="1000">1.000</label>
                 </p>
-                <input type="hidden" name="jsp" value="jsp"/>
+                <input type="hidden" name="jsp" value="jstl"/>
                 <input type="submit" name="enviar" value="Enviar"/>
             </form>
         </div>

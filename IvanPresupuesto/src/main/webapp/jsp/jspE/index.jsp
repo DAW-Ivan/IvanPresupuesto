@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Sogar JSP</title>
         <link rel="stylesheet" href="../../css/sta.css"/>
     </head>
     <body>
@@ -27,6 +27,7 @@
                     <input type="checkbox" name="contenido" value="contenido" id="contenido" checked/>
                     <label for="contenido">Seguro de contenido</label>
                 </p>
+                <input type="hidden" name="jsp" value="jsp"/>
                 <input type="submit" value="Enviar"/>
             </form>
         </div>

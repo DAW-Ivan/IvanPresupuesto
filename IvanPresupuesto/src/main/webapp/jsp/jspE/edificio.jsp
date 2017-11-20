@@ -65,6 +65,7 @@
                         <option value="150.001">&gt;150.000</option>
                     </select>
                 </p>
+                <input type="hidden" name="jsp" value="jsp"/>
                 <input type="submit" name="enviar" value="Enviar"/>
             </form>
         </div>

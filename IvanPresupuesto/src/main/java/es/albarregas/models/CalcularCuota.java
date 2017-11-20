@@ -16,7 +16,6 @@ public final class CalcularCuota {
     
     public static double calcularCuota(Edificios ed){
         double prima=ed.getValor()*0.005;
-        System.out.println("base"+prima);
         switch(ed.getTipo()){
             case "piso":prima=prima*0.95;
                 break;
@@ -29,9 +28,7 @@ public final class CalcularCuota {
             case "chalet":prima=prima*1.2;
                 break;
         }
-        System.out.println("tipo"+prima);
         prima+=(prima/100)*ed.getHabitaciones();
-        System.out.println("hab"+prima);
         switch(ed.getFecha()){
             case "1949":prima+=prima*0.09;
                 break;
@@ -44,11 +41,9 @@ public final class CalcularCuota {
             case "2016":prima+=prima*0.01;
                 break;
         }
-        System.out.println("fecha"+prima);
         if(ed.getMaterial().equals("madera")){
             prima+=prima*0.1;
         }
-        System.out.println("madera"+prima);
         return prima;
     }
     

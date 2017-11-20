@@ -9,12 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Edificio JSTL</title>
         <link rel="stylesheet" href="../../css/sta.css"
     </head>
     <body>
         <%@include file="../../inc/cabecera.inc" %>
-        <div>
+        <div class="contenido">
             <h2>Detalles de la póliza de edificios</h2>
             <p>Proporcione información de dónde vive usted en el siguiente formulario, y haga clic en Enviar</p>
             <form action="../../edificio" method="post">
@@ -65,7 +65,7 @@
                         <option value="150.001">&gt;150.000</option>
                     </select>
                 </p>
-                <input type="hidden" name="jsp" value="jsp"/>
+                <input type="hidden" name="jsp" value="jstl"/>
                 <input type="submit" name="enviar" value="Enviar"/>
             </form>
         </div>

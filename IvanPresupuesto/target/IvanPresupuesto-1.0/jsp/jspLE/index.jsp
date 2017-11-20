@@ -9,12 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Sogar JSP</title>
+        <title>Sogar JSTL</title>
         <link rel="stylesheet" href="../../css/sta.css"/>
     </head>
     <body>
         <%@include file="../../inc/cabecera.inc" %>
-        <div>
+        <div class="contenido">
             <h2>¡Elija su seguro!</h2>
             <p class="negra">Por favor elegir seguro de edificio, seguro de contenido, o ambos, marcando las casillas de abajo</p>
             <form action="../../eleccion" method="post">
@@ -27,7 +27,7 @@
                     <input type="checkbox" name="contenido" value="contenido" id="contenido" checked/>
                     <label for="contenido">Seguro de contenido</label>
                 </p>
-                <input type="hidden" name="jsp" value="jsp"/>
+                <input type="hidden" name="jsp" value="jstl"/>
                 <input type="submit" value="Enviar"/>
             </form>
         </div>

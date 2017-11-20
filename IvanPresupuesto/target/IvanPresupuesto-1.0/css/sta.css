@@ -9,12 +9,17 @@ and open the template in the editor.
 */
 
 body{margin:0;padding:0;}
-img{width:20%;margin-left: 15%;}
+header{background: lightblue;}
+img{max-height:80px;margin-left: 15%;}
 div{margin-left: 15%;overflow: hidden;}
-h1{display: inline-block;margin-left: 15%;font-size: 70px;color: darkred;}
+h1{display: inline;margin-left: 15%;font-size: 80px;color: darkred;vertical-align: top;}
 .negra{font-weight: bold;}
 footer{position: fixed;bottom: 0;background: lightblue;width: 100%;
 padding-left: 15%;}
 .float{float: left;margin: 5%;}
 .clear{clear: left;margin-left: 20%;}
 .res{font-weight: bolder;}
+.enl{clear: both;}
+a{text-decoration: none;color: black;}
+a:hover{background: blue;color: white;}
+.contenido{width: 100%;overflow: hidden;}

@@ -53,6 +53,7 @@ public class contenido extends HttpServlet {
         Contenidos con=new Contenidos();
         Enumeration<String> e=request.getParameterNames();
         String txt;
+        String url;
         
         while(e.hasMoreElements()){
             txt=e.nextElement();
@@ -64,11 +65,7 @@ public class contenido extends HttpServlet {
                 case "franquicia":con.setFranquicia(Integer.parseInt(request.getParameter(txt)));
                     break;
             }
-            /*if(txt.equals("daños")){
-                con.setDaños(true);
-            }else{
-                con.setDaños(false);
-            }*/
+         
         }
         
         con.setPrima(CalcularCuota.calcularContenido(con));
@@ -76,7 +73,12 @@ public class contenido extends HttpServlet {
         HttpSession sesion=request.getSession();
         sesion.setAttribute("contenido", con);
         
-        response.sendRedirect("jsp/jspE/visualizar.jsp");
+        if(request.getParameter("jsp").equals("jstl")){
+            url="jsp/jspLE/visualizar.jsp";
+        }else{
+            url="jsp/jspE/visualizar.jsp";
+        }
+        request.getRequestDispatcher(url).forward(request, response);
         
     }
 

@@ -50,27 +50,36 @@ public class eleccion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Elecciones ele=new Elecciones();
+        Elecciones eleccion=new Elecciones();
+        
+        System.out.println(request.getHeader("referer"));
         
         Enumeration<String> e=request.getParameterNames();
         String txt,url=null;
         while(e.hasMoreElements()){
             txt=e.nextElement();
             if(txt.equals("edificio")){
-                ele.setEdificio(true);   
+                eleccion.setEdificio(true);   
             }else if(txt.equals("contenido")){
-                ele.setContenido(true);                
+                eleccion.setContenido(true);                
+            }
+        }
+        if(eleccion.getEdificio()==true){
+            if(request.getParameter("jsp").equals("jstl")){
+                url="jsp/jspLE/edificio.jsp";
+            }else{
+                url="jsp/jspE/edificio.jsp";
+            }
+        }else{
+            if(request.getParameter("jsp").equals("jstl")){
+                url="jsp/jspLE/contenido.jsp";
+            }else{
+                url="jsp/jspE/contenido.jsp";
             }
         }
         
-        if(ele.getEdificio()==true){
-            url="jsp/jspE/edificio.jsp";
-        }else{
-            url="jsp/jspE/contenido.jsp";
-        }
-        
         HttpSession sesion=request.getSession();
-        sesion.setAttribute("eleccion", ele);
+        sesion.setAttribute("eleccion", eleccion);
         
         response.sendRedirect(url);
         

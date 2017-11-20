@@ -41,6 +41,7 @@
                     <input type="radio" name="franquicia" value="1000" id="1000"/>
                     <label for="1000">1.000</label>
                 </p>
+                <input type="hidden" name="jsp" value="jsp"/>
                 <input type="submit" name="enviar" value="Enviar"/>
             </form>
         </div>

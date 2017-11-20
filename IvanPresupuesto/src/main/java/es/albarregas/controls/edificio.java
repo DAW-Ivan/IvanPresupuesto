@@ -79,9 +79,17 @@ public class edificio extends HttpServlet {
         
         Elecciones ele=(Elecciones)sesion.getAttribute("eleccion");
         if(ele.getContenido()){
-            url="jsp/jspE/contenido.jsp";
+            if(request.getParameter("jsp").equals("jstl")){
+                url="jsp/jspLE/contenido.jsp";
+            }else{
+                url="jsp/jspE/contenido.jsp";
+            }
         }else{
-            url="jsp/jspE/visualizar.jsp";
+            if(request.getParameter("jsp").equals("jstl")){
+                url="jsp/jspLE/visualizar.jsp";
+            }else{
+                url="jsp/jspE/visualizar.jsp";
+            }
         }
         
         response.sendRedirect(url);
