@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : contenido
+    Created on : 20-nov-2017, 20:35:14
+    Author     : Ivan
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+
+    <jsp:directive.page isELIgnored="false" />
+    <jsp:output omit-xml-declaration="false"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd" />
+    <c:set var="contexto" value="${pageContext.request.contextPath}" />
+
+    <jsp:useBean id="ed" class="es.albarregas.beans.Edificios">
+        <jsp:setProperty name="ed" property="tipo" value="${param.tipo}"/>
+        <jsp:setProperty name="ed" property="habitaciones" value="${param.habitaciones}"/>
+        <jsp:setProperty name="ed" property="fecha" value="${param.fecha}"/>
+        <jsp:setProperty name="ed" property="material" value="${param.material}"/>
+        <jsp:setProperty name="ed" property="valor" value="${param.valor}"/>
+        <jsp:useBean id="calcular" class="es.albarregas.models.CalcularCuota"/>
+        <fmt:formatNumber var="p" type="number" maxIntegerDigits="3" value="${calcular.calcularCuota(ed)}"/>
+        <fmt:parseNumber var="pr" type="number" value="${p}"/>
+        <jsp:setProperty name="ed" property="prima" value="${pr}"/>
+    </jsp:useBean>
+
+    <c:set var="edificio" scope="session" value="${ed}"/>
+    <c:if test="${not empty sessionScope.contenido}">
+        <c:redirect url="../jspXML/contenido.jspx"/>
+    </c:if>
+    <c:if test="${empty sessionScope.contenido}">
+        <c:redirect url="../jspXML/visualizar.jspx"/>
+    </c:if>
+
+</jsp:root>

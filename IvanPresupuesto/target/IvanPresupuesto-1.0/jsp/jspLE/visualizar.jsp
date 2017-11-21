@@ -14,9 +14,10 @@
         <title>Resultado JSTL</title>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sta.css"/>
     </head>
+    <c:set var="edificio" scope="page" value="${edificio}"/>
+    <c:set var="contenido" scope="page" value="${contenido}"/>
     <body>
-        <c:set var="edificio" scope="page" value="${edificio}"/>
-        <%@include file="../../inc/cabecera.inc"%>
+        <jsp:include page="../../inc/cabecera.inc"/>
         <div class="contenido">
             <h2>Detalles de su póliza</h2>
             <c:if test="${not empty edificio}">
@@ -31,7 +32,6 @@
                 </div>
                 <c:set var="primaed" value="true"/>
             </c:if>
-            <c:set var="contenido" scope="page" value="${contenido}"/>
             <c:if test="${not empty contenido}">
                 <div class="float">
                     <h3>Contenido</h3>
@@ -42,18 +42,19 @@
                     <p>Franquicia: ${contenido.franquicia}</p>
                     <p class="res">Prima: <fmt:formatNumber type="currency" value="${contenido.prima}"/></p>
                 </div>
-                    <c:set var="primacon" value="true"/>
+                <c:set var="primacon" value="true"/>
             </c:if>
             <c:if test="${primaed && primacon}">
                 <div class="float">
-                        <h3 class="clear">Total: <fmt:formatNumber type="currency" value="${edificio.prima+contenido.prima}"/></h3>
-                    </div>
+                    <h3 class="clear">Total: <fmt:formatNumber type="currency" value="${edificio.prima+contenido.prima}"/></h3>
+                </div>
             </c:if>
             <div class="enl">
                 <a href="<%=request.getContextPath()%>/index.html">Volver</a>
             </div>
         </div>
         <%session.invalidate();%>
-        <%@include file="../../inc/pie.inc"%>
+        <jsp:include page="../../inc/pie.inc"/>
     </body>
+    ${sesion.invalidate()}
 </html>

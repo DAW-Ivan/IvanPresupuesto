@@ -64,9 +64,10 @@
                 }
             %>
             <div class="enl">
-                <a href="index.html">Volver</a>
+                <a href="../../index.html">Volver</a>
             </div>
-        </div>        
+        </div>  
+        <%sesion.invalidate();%>
         <%@include file="../../inc/pie.inc"%>
     </body>
 </html>

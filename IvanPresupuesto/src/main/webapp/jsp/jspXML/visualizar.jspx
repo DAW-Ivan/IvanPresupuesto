@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : contenido
+    Created on : 20-nov-2017, 20:35:14
+    Author     : Ivan
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+
+    <jsp:directive.page isELIgnored="false" />
+    <jsp:output omit-xml-declaration="false"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd" />
+    <c:set var="contexto" value="${pageContext.request.contextPath}" />
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>Resultado JSPX</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <link rel="stylesheet" href="${contexto}/css/sta.css" type="text/css" />
+        </head>
+        <body>
+            <jsp:include page="/inc/cabecera.inc" />
+            <div class="contenido">
+                <h2>Detalles de la póliza</h2>
+                <c:if test="${not empty sessionScope.edificio}">
+                    <div class="float">
+                        <h3>Edificio</h3>
+                        <p>Tipo de edificio: ${edificio.tipo}</p>
+                        <p>Habitaciones: ${edificio.habitaciones}</p>
+                        <p>Fecha de construcción: ${edificio.fecha}</p>
+                        <p>Tipo de construcción: <label class="cap">${edificio.material}</label></p>
+                        <p>Valor de mercado: <fmt:formatNumber type="currency" value="${edificio.valor}"/></p>
+                        <p class="res">Prima: <fmt:formatNumber type="currency" value="${edificio.prima}"/></p>
+                    </div>
+                </c:if>
+                <c:if test="${not empty sessionScope.contenido}">
+                    <div class="float">
+                        <h3>Contenido</h3>
+                        <c:if test="${not empty contenido.daños}">
+                            <p>Daños cubiertos</p>
+                        </c:if>
+                        <p>Cantidad: <fmt:formatNumber type="currency" value="${contenido.cantidad}"/></p>
+                        <p>Franquicia:
+                            <c:if test="${contenido.franquicia=='0'}">
+                                Sin franquicia
+                            </c:if>
+                            <c:if test="${contenido.franquicia!=0}">
+                                <c:out value="${contenido.franquicia}"/>
+                            </c:if>
+                        </p>
+                        <p class="res">Prima: <fmt:formatNumber type="currency" value="${contenido.prima}"/></p>
+                    </div>
+                </c:if>
+                <c:if test="${(not empty sessionScope.edificio) and (not empty sessionScope.contenido)}">
+                    <div class="float">
+                        <h3 class="clear">Total: <fmt:formatNumber type="currency" value="${edificio.prima+contenido.prima}"/></h3>
+                    </div>
+                </c:if>
+                <div class="enl"><a href="${contexto}/index.html">Volver</a></div>
+            </div>
+            <jsp:include page="/inc/pie.inc" />
+        </body>
+    </html>
+</jsp:root>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : contenido
+    Created on : 20-nov-2017, 20:35:14
+    Author     : Ivan
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+
+    <jsp:directive.page isELIgnored="false" />
+    <jsp:output omit-xml-declaration="false"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd" />
+    <c:set var="contexto" value="${pageContext.request.contextPath}" />
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>Contenido JSPX</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <link rel="stylesheet" href="${contexto}/css/sta.css" type="text/css" />
+        </head>
+        <body>
+            <jsp:include page="/inc/cabecera.inc" />
+            <div class="contenido">
+                <h2>Detalles de la póliza de contenidos</h2>
+                <p>Proporcione infromación sobre su contenido en el formulario, y haga clic en Envíar</p>
+                <form action="../controladores/controlContenido.jspx" method="post">
+                    <p>
+                        <label for="daños">Cubrir daños accidentales</label>
+                        <input type="checkbox" name="dan" value="true" id="daños" checked="checked"/>
+                    </p>
+                    <p>
+                        <label>Cantidad que quiere asegurar</label>
+                        <select name="cantidad">
+                            <option value="10000">10.000</option>
+                            <option value="20000">20.000</option>
+                            <option value="30000">30.000</option>
+                            <option value="50000">50.000</option>
+                            <option value="100000">100.000</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label>Franquicia  </label>
+                        <input type="radio" name="franquicia" value="0" id="no" checked="checked"/>
+                        <label for="no">Ninguna</label>
+                        <input type="radio" name="franquicia" value="500" id="500"/>
+                        <label for="500">500</label>
+                        <input type="radio" name="franquicia" value="1000" id="1000"/>
+                        <label for="1000">1.000</label>
+                    </p>
+                    <input type="hidden" name="jsp" value="jstl"/>
+                    <input type="submit" name="enviar" value="Enviar"/>
+                </form>
+            </div>
+            <jsp:include page="/inc/pie.inc" />
+        </body>
+    </html>
+</jsp:root>

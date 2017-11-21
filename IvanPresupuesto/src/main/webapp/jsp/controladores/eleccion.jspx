@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : contenido
+    Created on : 20-nov-2017, 20:35:14
+    Author     : Ivan
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+
+    <jsp:directive.page isELIgnored="false" />
+    <jsp:output omit-xml-declaration="false"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd" />
+    <c:set var="contexto" value="${pageContext.request.contextPath}" />
+ 
+            <c:set var="edificio" scope="session" value="${param.edificio}"/>
+            <c:set var="contenido" scope="session" value="${param.contenido}"/>
+            <c:if test="${not empty edificio}">
+                <c:redirect url="../jspXML/edificio.jspx"/>
+            </c:if>
+            <c:if test="${empty edificio}">
+                <c:if test="${not empty contenido}">
+                    <c:redirect url="../jspXML/contenido.jspx"/>
+                </c:if>
+                <c:if test="${empty contenido}">
+                    <c:redirect url="../jspXML/index.jspx"/>
+                </c:if>
+            </c:if>
+
+</jsp:root>
